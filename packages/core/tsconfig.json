@@ -22,7 +22,12 @@
     "skipLibCheck": true,
     "noUnusedParameters": true,
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"],
+    }
   },
   "include": ["src"]
 }
