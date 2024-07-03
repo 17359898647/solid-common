@@ -10,6 +10,7 @@ export interface ICustomFormProps extends JSX.FormHTMLAttributes<HTMLFormElement
 export function Form(props: ICustomFormProps) {
   const [,rest] = splitProps(props, ['disabled'])
   const [state, setState] = createStore({
+    // eslint-disable-next-line solid/reactivity
     disabled: props.disabled,
   })
 

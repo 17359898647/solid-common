@@ -20,13 +20,14 @@ export interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
 
 function Input(props: InputProps) {
   const formContext = useFormContext()
-  const [, rest] = splitProps(mergeProps(formContext, props), ['type', 'class'])
+  const defaultProps = mergeProps(formContext, props)
+  const [, rest] = splitProps(defaultProps, ['type', 'class'])
   return (
     <div class="w-full flex flex-col gap-y-2">
       <Show when={props.label}>
         <label class={cn('block text-sm font-medium text-gray-700', props.labelClass)}>
           {props.label}
-          {' '}
+          &nbsp
           {props.required && <span class="text-red-600">*</span>}
         </label>
       </Show>

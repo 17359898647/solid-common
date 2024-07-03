@@ -7,7 +7,10 @@ function App() {
   return (
     <div class="cn-h-screen">
       <Form disabled={disabled()}>
-        <Input />
+        <Input
+          required
+          label="demo"
+        />
         <button
           type="button"
           onClick={() => setDisabled(e => !e)}
