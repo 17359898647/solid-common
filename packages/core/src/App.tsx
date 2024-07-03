@@ -1,6 +1,6 @@
-import { Form } from '@components/Form'
-import { Input } from '@components/Input'
 import { createSignal } from 'solid-js'
+import { Form } from './components/Form'
+import { Input } from './components/Input'
 
 function App() {
   const [disabled, setDisabled] = createSignal(false)

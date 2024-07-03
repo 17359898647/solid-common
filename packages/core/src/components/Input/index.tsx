@@ -1,7 +1,7 @@
 import type { JSX } from 'solid-js'
 import { Show, mergeProps, splitProps } from 'solid-js'
-import { useFormContext } from '@components/Form/FormContext.ts'
-import { cn } from '@utils/cn.ts'
+import { useFormContext } from '../Form/FormContext.ts'
+import { cn } from '../../utils/cn.ts'
 
 export interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   icon?: JSX.Element | null

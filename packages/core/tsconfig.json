@@ -24,10 +24,6 @@
     "noEmit": true,
     "isolatedModules": true,
     "baseUrl": "./src",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"],
-    }
   },
   "include": ["src"]
 }
