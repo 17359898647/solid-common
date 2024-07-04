@@ -26,6 +26,7 @@
   "exports": {
     "./style.css": "./dist/style.css",
     "./Form": "./dist/Form/index.js",
-    "./Input": "./dist/Input/index.js"
+    "./Input": "./dist/Input/index.js",
+    "./cn.ts": "./dist/cn.ts"
   }
 }

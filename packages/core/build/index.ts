@@ -5,34 +5,51 @@ import fs from 'fs-extra'
 
 const rootDir = path.resolve(__dirname, '..')
 const componentsDir = resolve(rootDir, 'src/components')
+const utilsDir = resolve(rootDir, 'src/utils')
 const packagePath = resolve(rootDir, 'package.json')
-export const componentsDirName = fg.sync(`${componentsDir}/*`, { onlyDirectories: true })
+const componentsDirName = fg.sync(`${componentsDir}/*`, { onlyDirectories: true })
+const utilsDirName = fg.sync(`${utilsDir}/*`)
 function getComponents() {
-  const components: Record<string, any> = {
-    index: resolve(`${componentsDir}/`, 'index.ts'),
-  }
-  componentsDirName.forEach((file) => {
+  return componentsDirName.reduce<Record<string, string>>((acc, file) => {
     const componentName = file.split('/').pop()
-    components[componentName!] = resolve(`${componentsDir}/`, `${componentName}/index.tsx`)
-  })
-  return components
+    acc[componentName!] = resolve(`${componentsDir}/`, `${componentName}/index.tsx`)
+    return acc
+  }, {})
 }
 
-function getComponentsPackageName() {
-  const componentsPackage: Record<string, string> = {
-    './style.css': './dist/style.css',
-  }
-  componentsDirName.forEach((file) => {
-    const name = file.split('/').pop()
-    componentsPackage[`./${name!}`] = `./dist/${name}/index.js`
-  })
-  return componentsPackage
+function getUtils() {
+  return utilsDirName.reduce<Record<string, string>>((acc, file) => {
+    const componentPath = file.split('/').pop()
+    const componentName = componentPath!.split('.').shift()!
+    acc[componentName] = resolve(`${utilsDir}/`, `${componentPath}`)
+    return acc
+  }, {})
 }
+
+function createComponentsPackage() {
+  return componentsDirName.reduce<Record<string, string>>((acc, file) => {
+    const name = file.split('/').pop()
+    acc[`./${name!}`] = `./dist/${name}/index.js`
+    return acc
+  }, {})
+}
+
+function createUtilsPackage() {
+  return utilsDirName.reduce<Record<string, string>>((acc, file) => {
+    const name = file.split('/').pop()
+    acc[`./${name!}`] = `./dist/${name}`
+    return acc
+  }, {})
+}
+
+console.log(createUtilsPackage(), getUtils())
 
 function WritePackage() {
   fs.readJSON(packagePath).then((packageJSON) => {
     packageJSON.exports = {
-      ...getComponentsPackageName(),
+      './style.css': './dist/style.css',
+      ...createComponentsPackage(),
+      ...createUtilsPackage(),
     }
     fs.writeJSON(packagePath, packageJSON, { spaces: 2 })
   })
@@ -40,6 +57,8 @@ function WritePackage() {
 WritePackage()
 export function build() {
   return {
+    index: resolve(`${componentsDir}/`, 'index.ts'),
     ...getComponents(),
+    ...getUtils(),
   }
 }
