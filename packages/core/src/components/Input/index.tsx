@@ -2,6 +2,7 @@ import type { JSX } from 'solid-js'
 import { Show, mergeProps, splitProps } from 'solid-js'
 import { useFormContext } from '../Form/FormContext.ts'
 import { cn } from '../../utils/cn.ts'
+import { InputError } from './InputError.tsx'
 
 export interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   icon?: JSX.Element | null
@@ -72,12 +73,12 @@ function Input(props: InputProps) {
           </div>
         </Show>
       </div>
-      {/* <Show when={props.showError !== false}> */}
-      {/*  <InputError */}
-      {/*    class={props.errorClass} */}
-      {/*    errors={props.errors} */}
-      {/*  /> */}
-      {/* </Show> */}
+      <Show when={props.showError !== false}>
+        <InputError
+          class={props.errorClass}
+          errors={props.errors}
+        />
+      </Show>
     </div>
   )
 }

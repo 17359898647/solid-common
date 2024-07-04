@@ -42,8 +42,6 @@ function createUtilsPackage() {
   }, {})
 }
 
-console.log(createUtilsPackage(), getUtils())
-
 function WritePackage() {
   fs.readJSON(packagePath).then((packageJSON) => {
     packageJSON.exports = {
