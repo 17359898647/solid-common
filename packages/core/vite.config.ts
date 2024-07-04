@@ -4,7 +4,7 @@ import solid from 'vite-plugin-solid'
 import UnoCss from 'unocss/vite'
 import dts from 'vite-plugin-dts'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
-import { entry } from './build/entry'
+import { components } from './build/components'
 
 export default defineConfig(() => ({
   plugins: [
@@ -19,7 +19,9 @@ export default defineConfig(() => ({
   ],
   build: {
     lib: {
-      entry: entry(),
+      entry: {
+        ...components(),
+      },
       formats: ['es'],
     },
   },

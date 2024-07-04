@@ -77,6 +77,7 @@
     "code-inspector-plugin": "^0.14.2",
     "eslint-plugin-solid": "^0.14.1",
     "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
     "solid-js": "^1.8.18",
     "tailwind-merge": "^2.3.0",
     "unocss": "^0.61.0",
