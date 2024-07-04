@@ -4,6 +4,11 @@
   "version": "0.0.1",
   "license": "MIT",
   "homepage": "https://github.com/17359898647/solid-common#readme",
+  "author": "ge Datou",
+  "keywords": [
+    "solid-js",
+    "gedatou"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
