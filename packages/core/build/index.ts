@@ -17,11 +17,6 @@ function getComponents() {
   })
   return components
 }
-export function build() {
-  return {
-    ...getComponents(),
-  }
-}
 
 function getComponentsPackageName() {
   const componentsPackage: Record<string, string> = {
@@ -43,3 +38,8 @@ function WritePackage() {
   })
 }
 WritePackage()
+export function build() {
+  return {
+    ...getComponents(),
+  }
+}
