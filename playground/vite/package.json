@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@wuhan/solid-common": "link:../../packages/core",
+    "@gedatou/solid-common": "link:../../packages/core",
     "solid-js": "^1.8.17"
   },
   "devDependencies": {

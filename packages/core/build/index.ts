@@ -28,16 +28,16 @@ function getUtils() {
 
 function createComponentsPackage() {
   return componentsDirName.reduce<Record<string, string>>((acc, file) => {
-    const name = file.split('/').pop()
-    acc[`./${name!}`] = `./dist/${name}/index.js`
+    const ComponentName = file.split('/').pop()!
+    acc[`./${ComponentName!}`] = `./dist/${ComponentName}.js`
     return acc
   }, {})
 }
 
 function createUtilsPackage() {
   return utilsDirName.reduce<Record<string, string>>((acc, file) => {
-    const name = file.split('/').pop()
-    acc[`./${name!}`] = `./dist/${name}`
+    const UtilName = file.split('/').pop()!.split('.').shift()!
+    acc[`./${UtilName!}`] = `./dist/${UtilName}.js`
     return acc
   }, {})
 }

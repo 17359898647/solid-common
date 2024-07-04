@@ -121,7 +121,7 @@ importers:
 
   playground/vite:
     dependencies:
-      '@wuhan/solid-common':
+      '@gedatou/solid-common':
         specifier: link:../../packages/core
         version: link:../../packages/core
       solid-js:
