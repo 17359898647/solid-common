@@ -2,7 +2,7 @@
   "name": "@wuhan/solid-common",
   "type": "module",
   "version": "0.0.1",
-  "private": false,
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
