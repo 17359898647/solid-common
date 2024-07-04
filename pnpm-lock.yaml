@@ -26,6 +26,9 @@ importers:
       eslint-plugin-solid:
         specifier: ^0.14.1
         version: 0.14.1(eslint@9.3.0)(typescript@5.4.5)
+      fast-glob:
+        specifier: ^3.3.2
+        version: 3.3.2
       solid-js:
         specifier: ^1.8.18
         version: 1.8.18
@@ -96,6 +99,25 @@ importers:
 
   packages/core:
     dependencies:
+      solid-js:
+        specifier: ^1.8.17
+        version: 1.8.18
+    devDependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.4.5
+      vite:
+        specifier: ^5.3.1
+        version: 5.3.1(@types/node@20.12.12)
+      vite-plugin-solid:
+        specifier: ^2.10.2
+        version: 2.10.2(solid-js@1.8.18)(vite@5.3.1)
+
+  playground/vite:
+    dependencies:
+      '@wuhan/solid-common':
+        specifier: link:../../packages/core
+        version: link:../../packages/core
       solid-js:
         specifier: ^1.8.17
         version: 1.8.18
@@ -6449,7 +6471,7 @@ packages:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.2.11(@types/node@20.12.12)
+      vite: 5.3.2(@types/node@20.12.12)
       vite-node: 1.6.0(@types/node@20.12.12)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
