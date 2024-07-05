@@ -1,7 +1,7 @@
 {
   "name": "@gedatou/solid-common",
   "type": "module",
-  "version": "0.0.22",
+  "version": "0.0.23-beta.1",
   "license": "MIT",
   "homepage": "https://github.com/17359898647/solid-common#readme",
   "author": "ge Datou",
@@ -37,20 +37,8 @@
   },
   "typesVersions": {
     "*": {
-      "Button": [
-        "./dist/Button.d.ts"
-      ],
-      "Form": [
-        "./dist/Form.d.ts"
-      ],
-      "Input": [
-        "./dist/Input.d.ts"
-      ],
-      "Mask": [
-        "./dist/Mask.d.ts"
-      ],
-      "cn": [
-        "./dist/cn.d.ts"
+      "*": [
+        "./dist/*.d.ts"
       ]
     }
   }
