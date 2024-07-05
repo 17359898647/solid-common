@@ -19,10 +19,10 @@ export interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   showError?: boolean
 }
 
-function Input(props: InputProps) {
+function Input(defaultProps: InputProps) {
   const formContext = useFormContext()
-  const defaultProps = mergeProps(formContext, props)
-  const [, rest] = splitProps(defaultProps, ['type', 'class'])
+  const props = mergeProps(formContext, defaultProps)
+  const [, rest] = splitProps(props, ['type', 'class'])
   return (
     <div class="w-full flex flex-col gap-y-2">
       <Show when={props.label}>

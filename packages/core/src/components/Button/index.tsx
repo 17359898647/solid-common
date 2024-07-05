@@ -56,10 +56,10 @@ export interface ButtonProps extends ComponentProps<'button'>, VariantProps<type
   icon?: JSX.Element
 }
 
-const Button: Component<ButtonProps> = (props) => {
+const Button: Component<ButtonProps> = (defaultProps) => {
   const formContext = useFormContext()
-  const defaultProps = mergeProps(formContext, props)
-  const [, rest] = splitProps(defaultProps, ['variant', 'size', 'class', 'icon'])
+  const props = mergeProps(formContext, defaultProps)
+  const [, rest] = splitProps(props, ['variant', 'size', 'class', 'icon'])
   return (
     <button
       class={cn(buttonVariants({ variant: props.variant, size: props.size }), props.class)}
