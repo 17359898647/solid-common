@@ -30,6 +30,9 @@ export default defineConfig(() => ({
       output: {
         preserveModules: true,
         exports: 'named',
+        format: 'es',
+        dir: 'dist',
+        preserveModulesRoot: 'src',
       },
       plugins: [terser()],
     },
