@@ -42,12 +42,24 @@ function createUtilsPackage() {
   }, {})
 }
 
+function createTypesVersions(toExports: Record<string, string>): Record<string, string[]> {
+  return Object.keys(toExports).reduce<Record<string, string[]>>((acc, key) => {
+    const newKey = key.slice(2)
+    const newValue = toExports[key].replace('.js', '.d.ts')
+    acc[newKey] = [newValue]
+    return acc
+  }, {})
+}
+
 function WritePackage() {
   fs.readJSON(packagePath).then((packageJSON) => {
+    const tsExports = { ...createComponentsPackage(), ...createUtilsPackage() }
     packageJSON.exports = {
       './style.css': './dist/style.css',
-      ...createComponentsPackage(),
-      ...createUtilsPackage(),
+      ...tsExports,
+    }
+    packageJSON.typesVersions = {
+      '*': createTypesVersions(tsExports),
     }
     fs.writeJSON(packagePath, packageJSON, { spaces: 2 })
   })

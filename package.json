@@ -6,7 +6,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "pnpm -C packages/core dev",
+    "dev": "pnpm -C playground/vite dev",
     "build": "pnpm -C packages/core build",
     "lint": "eslint .",
     "release": "pnpm -C packages/core release",

@@ -34,5 +34,24 @@
     "./Input": "./dist/Input.js",
     "./Mask": "./dist/Mask.js",
     "./cn": "./dist/cn.js"
+  },
+  "typesVersions": {
+    "*": {
+      "Button": [
+        "./dist/Button.d.ts"
+      ],
+      "Form": [
+        "./dist/Form.d.ts"
+      ],
+      "Input": [
+        "./dist/Input.d.ts"
+      ],
+      "Mask": [
+        "./dist/Mask.d.ts"
+      ],
+      "cn": [
+        "./dist/cn.d.ts"
+      ]
+    }
   }
 }
