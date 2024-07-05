@@ -67,7 +67,7 @@ function WritePackage() {
 WritePackage()
 export function build() {
   return {
-    index: resolve(`${componentsDir}/`, 'index.ts'),
+    // index: resolve(`${componentsDir}/`, 'index.ts'),
     ...getComponents(),
     ...getUtils(),
   }

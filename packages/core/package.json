@@ -20,7 +20,11 @@
     "release": "bumpp && npm publish"
   },
   "dependencies": {
-    "solid-js": "^1.8.17"
+    "@kobalte/core": "^0.13.3",
+    "@rnwonder/solid-date-picker": "^1.3.7",
+    "class-variance-authority": "^0.7.0",
+    "solid-js": "^1.8.17",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
@@ -37,8 +41,20 @@
   },
   "typesVersions": {
     "*": {
-      "*": [
-        "./dist/*.d.ts"
+      "Button": [
+        "./dist/Button.d.ts"
+      ],
+      "Form": [
+        "./dist/Form.d.ts"
+      ],
+      "Input": [
+        "./dist/Input.d.ts"
+      ],
+      "Mask": [
+        "./dist/Mask.d.ts"
+      ],
+      "cn": [
+        "./dist/cn.d.ts"
       ]
     }
   }
