@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'solid-js'
-import type { ICustomFormProps } from './index.tsx'
+import type { ICustomFormProps } from './index'
 
 export const FormContext = createContext<Pick<ICustomFormProps, 'disabled'>>({
   disabled: false,
