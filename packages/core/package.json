@@ -32,6 +32,7 @@
     "./Button": "./dist/Button.js",
     "./Form": "./dist/Form.js",
     "./Input": "./dist/Input.js",
+    "./Mask": "./dist/Mask.js",
     "./cn": "./dist/cn.js"
   }
 }

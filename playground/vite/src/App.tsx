@@ -1,17 +1,34 @@
 import '@gedatou/solid-common/style.css'
 import { Form } from '@gedatou/solid-common/Form'
 import { Input } from '@gedatou/solid-common/Input'
-import { ButtonPage } from './components/ButtonPage.tsx'
+import { NationPhoneInput, PhoneInput, SSNInput, ZipCodeInput } from '@gedatou/solid-common/Mask'
+import { ButtonPage } from './components/ButtonPage'
 
 function App() {
   return (
     <Form
-      class="px-4"
-      loading={true}
+      class="flex flex-col gap-2 px-4"
+      disabled={false}
     >
       <Input
         errors={['error1', 'error2']}
         label="demo"
+      />
+      <SSNInput
+        errors={['SSNError']}
+        placeholder="SSN"
+      />
+      <PhoneInput
+        errors={['PhoneError']}
+        placeholder="Phone"
+      />
+      <NationPhoneInput
+        errors={['Nation-PhoneErrors']}
+        placeholder="Nation-Phone"
+      />
+      <ZipCodeInput
+        errors={['Zip-CodeErrors']}
+        placeholder="Zip-Code"
       />
       <ButtonPage />
     </Form>

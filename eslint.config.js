@@ -36,7 +36,6 @@ export default eslint({
         prop: 'parens-new-line',
         return: 'parens-new-line',
       }],
-      'style/jsx-indent': [2, 2],
       'style/jsx-one-expression-per-line': [2, {
         allow: 'literal',
       }],
