@@ -33,29 +33,25 @@
   },
   "exports": {
     "./style.css": "./dist/style.css",
-    "./Button": "./dist/Button.js",
-    "./Form": "./dist/Form.js",
-    "./Input": "./dist/Input.js",
-    "./Mask": "./dist/Mask.js",
-    "./cn": "./dist/cn.js"
-  },
-  "typesVersions": {
-    "*": {
-      "Button": [
-        "./dist/Button.d.ts"
-      ],
-      "Form": [
-        "./dist/Form.d.ts"
-      ],
-      "Input": [
-        "./dist/Input.d.ts"
-      ],
-      "Mask": [
-        "./dist/Mask.d.ts"
-      ],
-      "cn": [
-        "./dist/cn.d.ts"
-      ]
+    "./Button": {
+      "import": "./Button/index.js",
+      "types": "./Button/index.d.ts"
+    },
+    "./Form": {
+      "import": "./Form/index.js",
+      "types": "./Form/index.d.ts"
+    },
+    "./Input": {
+      "import": "./Input/index.js",
+      "types": "./Input/index.d.ts"
+    },
+    "./Mask": {
+      "import": "./Mask/index.js",
+      "types": "./Mask/index.d.ts"
+    },
+    "./cn": {
+      "import": "./cn.js",
+      "types": "./cn.d.ts"
     }
   }
 }
