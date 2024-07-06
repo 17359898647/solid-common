@@ -26,7 +26,7 @@ export default defineConfig(() => ({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['solid-js', 'solid-js/web'],
+      external: ['solid-js', 'solid-js/web', 'solid-js/store'],
       output: {
         preserveModules: true,
         exports: 'named',
