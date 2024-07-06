@@ -34,20 +34,20 @@
   "exports": {
     "./style.css": "./dist/style.css",
     "./Button": {
-      "import": "./Button.js",
-      "types": "./Button/index.d.ts"
+      "import": "./dist/Button.js",
+      "types": "./dist/Button/index.d.ts"
     },
     "./Form": {
-      "import": "./Form.js",
-      "types": "./Form/index.d.ts"
+      "import": "./dist/Form.js",
+      "types": "./dist/Form/index.d.ts"
     },
     "./Input": {
-      "import": "./Input.js",
-      "types": "./Input/index.d.ts"
+      "import": "./dist/Input.js",
+      "types": "./dist/Input/index.d.ts"
     },
     "./Mask": {
-      "import": "./Mask.js",
-      "types": "./Mask/index.d.ts"
+      "import": "./dist/Mask.js",
+      "types": "./dist/Mask/index.d.ts"
     },
     "./cn": {
       "import": "./cn.js",

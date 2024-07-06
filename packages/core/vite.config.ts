@@ -5,10 +5,13 @@ import UnoCss from 'unocss/vite'
 import dts from 'vite-plugin-dts'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
 import terser from '@rollup/plugin-terser'
-import { WritePackageJson, build } from './build'
+import { WritePackageJson, createEntry, createInput } from './build'
 
 export default defineConfig(async () => {
   await WritePackageJson()
+  const input = createInput()
+  const entry = createEntry()
+  console.log({ input })
   return {
     plugins: [
       codeInspectorPlugin({
@@ -22,11 +25,12 @@ export default defineConfig(async () => {
     ],
     build: {
       lib: {
-        entry: build(),
+        entry,
         formats: ['es'],
       },
       rollupOptions: {
         external: ['solid-js', 'solid-js/web', 'solid-js/store'],
+        input,
         output: {
           preserveModules: true,
           exports: 'named',

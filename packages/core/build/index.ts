@@ -21,7 +21,6 @@ function getComponents() {
     return acc
   }, {})
 }
-
 function getUtils() {
   return utilsDirName.reduce<Record<string, string>>((acc, file) => {
     const componentPath = file.split('/').pop()
@@ -30,13 +29,14 @@ function getUtils() {
     return acc
   }, {})
 }
-
+const Components = getComponents()
+const Utils = getUtils()
 function createComponentsPackage() {
   return componentsDirName.reduce<IExports>((acc, file) => {
     const ComponentName = file.split('/').pop()!
     acc[`./${ComponentName!}`] = {
-      import: `./${ComponentName}/index.js`,
-      types: `./${ComponentName}/index.d.ts`,
+      import: `./dist/${ComponentName}.js`,
+      types: `./dist/${ComponentName}/index.d.ts`,
     }
     return acc
   }, {})
@@ -53,15 +53,6 @@ function createUtilsPackage() {
   }, {})
 }
 
-// function createTypesVersions(toExports: IExports): Record<string, string[]> {
-//   return Object.keys(toExports).reduce<Record<string, string[]>>((acc, key) => {
-//     const newKey = key.slice(2)
-//     const newValue = toExports[key].replace('.js', '.d.ts')
-//     acc[newKey] = [newValue]
-//     return acc
-//   }, {})
-// }
-
 export async function WritePackageJson() {
   fs.readJSON(packagePath).then((packageJSON) => {
     const tsExports = { ...createComponentsPackage(), ...createUtilsPackage() }
@@ -69,9 +60,6 @@ export async function WritePackageJson() {
       './style.css': './dist/style.css',
       ...tsExports,
     }
-    // packageJSON.typesVersions = {
-    //   '*': createTypesVersions(tsExports),
-    // }
     fs.writeJSON(packagePath, packageJSON, { spaces: 2 })
   })
   const packageJSON = await fs.readJSON(packagePath)
@@ -82,10 +70,13 @@ export async function WritePackageJson() {
   }
   await fs.writeJSON(packagePath, packageJSON, { spaces: 2 })
 }
-export function build() {
+export function createEntry() {
   return {
-    // index: resolve(`${componentsDir}/`, 'index.ts'),
-    ...getComponents(),
-    ...getUtils(),
+    index: resolve(`${componentsDir}/`, 'index.ts'),
+    ...Components,
+    ...Utils,
   }
+}
+export function createInput() {
+  return Object.values({ ...(Components), ...(Utils) })
 }
