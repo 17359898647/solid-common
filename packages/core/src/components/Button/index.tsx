@@ -1,4 +1,4 @@
-import type { Component, ComponentProps, JSX } from 'solid-js'
+import type { ComponentProps, JSX } from 'solid-js'
 import { Show, mergeProps, splitProps } from 'solid-js'
 
 import type { VariantProps } from 'class-variance-authority'
@@ -56,7 +56,7 @@ export interface ButtonProps extends ComponentProps<'button'>, VariantProps<type
   icon?: JSX.Element
 }
 
-export const Button: Component<ButtonProps> = (defaultProps) => {
+export function Button(defaultProps: ButtonProps) {
   const formContext = useFormContext()
   const props = mergeProps(formContext, defaultProps)
   const [, rest] = splitProps(props, ['variant', 'size', 'class', 'icon'])

@@ -19,7 +19,7 @@ export interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
   showError?: boolean
 }
 
-function Input(defaultProps: InputProps) {
+export function Input(defaultProps: InputProps) {
   const formContext = useFormContext()
   const props = mergeProps(formContext, defaultProps)
   const [, rest] = splitProps(props, ['type', 'class'])
@@ -82,5 +82,3 @@ function Input(defaultProps: InputProps) {
     </div>
   )
 }
-
-export { Input }
