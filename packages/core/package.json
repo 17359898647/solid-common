@@ -1,7 +1,7 @@
 {
   "name": "@gedatou/solid-common",
   "type": "module",
-  "version": "0.0.23-beta.8",
+  "version": "0.0.23-beta.9",
   "license": "MIT",
   "homepage": "https://github.com/17359898647/solid-common#readme",
   "author": "ge Datou",
@@ -34,19 +34,19 @@
   "exports": {
     "./style.css": "./dist/style.css",
     "./Button": {
-      "import": "./Button/index.js",
+      "import": "./Button.js",
       "types": "./Button/index.d.ts"
     },
     "./Form": {
-      "import": "./Form/index.js",
+      "import": "./Form.js",
       "types": "./Form/index.d.ts"
     },
     "./Input": {
-      "import": "./Input/index.js",
+      "import": "./Input.js",
       "types": "./Input/index.d.ts"
     },
     "./Mask": {
-      "import": "./Mask/index.js",
+      "import": "./Mask.js",
       "types": "./Mask/index.d.ts"
     },
     "./cn": {
