@@ -36,7 +36,7 @@ function createComponentsPackage() {
     const ComponentName = file.split('/').pop()!
     acc[`./${ComponentName!}`] = {
       import: `./dist/${ComponentName}.js`,
-      types: `./dist/${ComponentName}/index.d.ts`,
+      types: `./dist/${ComponentName}.d.ts`,
     }
     return acc
   }, {})
@@ -54,14 +54,6 @@ function createUtilsPackage() {
 }
 
 export async function WritePackageJson() {
-  fs.readJSON(packagePath).then((packageJSON) => {
-    const tsExports = { ...createComponentsPackage(), ...createUtilsPackage() }
-    packageJSON.exports = {
-      './style.css': './dist/style.css',
-      ...tsExports,
-    }
-    fs.writeJSON(packagePath, packageJSON, { spaces: 2 })
-  })
   const packageJSON = await fs.readJSON(packagePath)
   const tsExports = { ...createComponentsPackage(), ...createUtilsPackage() }
   packageJSON.exports = {

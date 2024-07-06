@@ -6,7 +6,7 @@ import { cva } from 'class-variance-authority'
 import { useFormContext } from '../Form/FormContext.ts'
 import { cn } from '../../utils/cn.ts'
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   'inline-flex items-center gap-2 justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 fill-blue-600',
   {
     variants: {
@@ -56,7 +56,7 @@ export interface ButtonProps extends ComponentProps<'button'>, VariantProps<type
   icon?: JSX.Element
 }
 
-const Button: Component<ButtonProps> = (defaultProps) => {
+export const Button: Component<ButtonProps> = (defaultProps) => {
   const formContext = useFormContext()
   const props = mergeProps(formContext, defaultProps)
   const [, rest] = splitProps(props, ['variant', 'size', 'class', 'icon'])
@@ -80,5 +80,3 @@ const Button: Component<ButtonProps> = (defaultProps) => {
     </button>
   )
 }
-
-export { Button, buttonVariants }

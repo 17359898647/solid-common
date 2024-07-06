@@ -15,9 +15,10 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build --watch",
+    "build": "tsc -b && vite build && npm run unocss",
     "preview": "vite preview",
-    "release": "bumpp && npm publish"
+    "release": "bumpp && npm publish",
+    "unocss": "unocss ./src/**/*.tsx -o dist/style.css"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.3",
@@ -34,20 +35,20 @@
   "exports": {
     "./style.css": "./dist/style.css",
     "./Button": {
-      "import": "./dist/src/components/Button/index.js",
-      "types": "./dist/Button/index.d.ts"
+      "import": "./dist/Button.js",
+      "types": "./dist/Button.d.ts"
     },
     "./Form": {
-      "import": "./dist/src/components/Form/index.js",
-      "types": "./dist/Form/index.d.ts"
+      "import": "./dist/Form.js",
+      "types": "./dist/Form.d.ts"
     },
     "./Input": {
-      "import": "./dist/src/components/Input/index.js",
-      "types": "./dist/Input/index.d.ts"
+      "import": "./dist/Input.js",
+      "types": "./dist/Input.d.ts"
     },
     "./Mask": {
-      "import": "./dist/src/components/Mask/index.js",
-      "types": "./dist/Mask/index.d.ts"
+      "import": "./dist/Mask.js",
+      "types": "./dist/Mask.d.ts"
     },
     "./cn": {
       "import": "./cn.js",

@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import type { UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 import solid from 'vite-plugin-solid'
@@ -5,13 +6,12 @@ import UnoCss from 'unocss/vite'
 import dts from 'vite-plugin-dts'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
 import terser from '@rollup/plugin-terser'
-import { WritePackageJson, createEntry, createInput } from './build'
+import { WritePackageJson } from './build'
+import { entry } from './build/defineVite'
+import { componentsDir } from './build/help'
 
 export default defineConfig(async () => {
   await WritePackageJson()
-  const input = createInput()
-  const entry = createEntry()
-  console.log({ input })
   return {
     plugins: [
       codeInspectorPlugin({
@@ -20,7 +20,8 @@ export default defineConfig(async () => {
       UnoCss(),
       solid(),
       dts({
-        insertTypesEntry: true,
+        rollupTypes: true,
+        exclude: resolve(componentsDir, 'css.ts'),
       }),
     ],
     build: {
@@ -30,13 +31,11 @@ export default defineConfig(async () => {
       },
       rollupOptions: {
         external: ['solid-js', 'solid-js/web', 'solid-js/store'],
-        input,
         output: {
-          preserveModules: true,
           exports: 'named',
           format: 'es',
           dir: 'dist',
-          preserveModulesRoot: 'src',
+          preserveModules: true,
         },
         plugins: [terser()],
       },
