@@ -4,8 +4,8 @@ import fg from 'fast-glob'
 import fs from 'fs-extra'
 
 const rootDir = path.resolve(__dirname, '..')
-const componentsDir = resolve(rootDir, 'src/components')
-const utilsDir = resolve(rootDir, 'src/utils')
+const componentsDir = resolve(rootDir, 'components')
+const utilsDir = resolve(rootDir, 'utils')
 const packagePath = resolve(rootDir, 'package.json')
 const componentsDirName = fg.sync(`${componentsDir}/*`, { onlyDirectories: true })
 const utilsDirName = fg.sync(`${utilsDir}/*`)

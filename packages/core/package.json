@@ -18,7 +18,7 @@
     "build": "tsc -b && vite build && npm run unocss",
     "preview": "vite preview",
     "release": "bumpp && npm publish",
-    "unocss": "unocss ./src/**/*.tsx -o dist/style.css"
+    "unocss": "unocss dist/**/*.js -o dist/style.css"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.3",
