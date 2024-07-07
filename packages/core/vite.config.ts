@@ -7,8 +7,7 @@ import dts from 'vite-plugin-dts'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
 import terser from '@rollup/plugin-terser'
 import { WritePackageJson } from './build'
-import { entry } from './build/defineVite'
-import { componentsDir } from './build/help'
+import { entry } from './build/defineVite.ts'
 
 export default defineConfig(async () => {
   await WritePackageJson()
@@ -21,10 +20,10 @@ export default defineConfig(async () => {
       solid(),
       dts({
         rollupTypes: true,
-        exclude: resolve(componentsDir, 'css.ts'),
       }),
     ],
     build: {
+      outDir: 'dist',
       lib: {
         entry,
         formats: ['es'],
@@ -32,13 +31,15 @@ export default defineConfig(async () => {
       rollupOptions: {
         external: ['solid-js', 'solid-js/web', 'solid-js/store'],
         output: {
-          exports: 'named',
+          exports: 'auto',
           format: 'es',
           dir: 'dist',
           preserveModules: true,
           preserveModulesRoot: resolve(__dirname),
         },
-        plugins: [terser()],
+        plugins: [
+          terser(),
+        ],
       },
     },
   } as UserConfig

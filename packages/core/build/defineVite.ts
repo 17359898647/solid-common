@@ -1,6 +1,7 @@
-import { componentsFiles, utilsFiles } from './help'
+import { resolve } from 'node:path'
+import { componentsFiles, rootDir, utilsFiles } from './help'
 
-function createComponentsEntry() {
+export function createComponentsEntry() {
   return componentsFiles.reduce<Record<string, string>>((acc, path) => {
     const componentName = path.split('/').pop()!.split('.').shift()!
     acc[componentName] = `${path}/index.tsx`
@@ -18,8 +19,9 @@ export function createUtilsEntry() {
 
 export function createEntry() {
   return {
-    ...createComponentsEntry(),
-    ...createUtilsEntry(),
+    // ...createComponentsEntry(),
+    // ...createUtilsEntry(),
+    index: resolve(rootDir, 'index.ts'),
   }
 }
 export const entry = createEntry()
