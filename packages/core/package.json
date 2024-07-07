@@ -1,7 +1,7 @@
 {
   "name": "@gedatou/solid-common",
   "type": "module",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "license": "MIT",
   "homepage": "https://github.com/17359898647/solid-common#readme",
   "author": "ge Datou",
@@ -17,8 +17,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build && npm run unocss",
     "preview": "vite preview",
-    "release": "bumpp && npm publish",
-    "unocss": "unocss dist/**/*.js -o dist/style.css"
+    "unocss": "unocss dist/**/*.js -o dist/style.css",
+    "release": "npm run build && bumpp && npm publish"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.3",
