@@ -1,7 +1,7 @@
 {
   "name": "@gedatou/solid-common",
   "type": "module",
-  "version": "0.0.25",
+  "version": "0.0.26-beta.1",
   "license": "MIT",
   "homepage": "https://github.com/17359898647/solid-common#readme",
   "author": "ge Datou",
@@ -19,7 +19,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build && npm run unocss",
     "preview": "vite preview",
-    "unocss": "unocss ./dist/**/*.js",
+    "unocss": "unocss ./**/*.tsx -o dist/style.css",
     "release": "npm run build && bumpp && npm publish"
   },
   "dependencies": {
@@ -33,5 +33,32 @@
     "typescript": "^5.2.2",
     "vite": "^5.3.1",
     "vite-plugin-solid": "^2.10.2"
+  },
+  "exports": {
+    "./style.css": "./dist/style.css",
+    "./Button": {
+      "import": "./dist/Button.js",
+      "types": "./dist/Button.d.ts"
+    },
+    "./Form": {
+      "import": "./dist/Form.js",
+      "types": "./dist/Form.d.ts"
+    },
+    "./Input": {
+      "import": "./dist/Input.js",
+      "types": "./dist/Input.d.ts"
+    },
+    "./Mask": {
+      "import": "./dist/Mask.js",
+      "types": "./dist/Mask.d.ts"
+    },
+    "./cn": {
+      "import": "./cn.js",
+      "types": "./cn.d.ts"
+    },
+    "./index": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    }
   }
 }
