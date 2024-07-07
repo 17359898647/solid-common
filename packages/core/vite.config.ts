@@ -6,11 +6,9 @@ import UnoCss from 'unocss/vite'
 import dts from 'vite-plugin-dts'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
 import terser from '@rollup/plugin-terser'
-import { WritePackageJson } from './build'
 import { entry } from './build/defineVite.ts'
 
 export default defineConfig(async () => {
-  await WritePackageJson()
   return {
     plugins: [
       codeInspectorPlugin({
@@ -31,7 +29,7 @@ export default defineConfig(async () => {
       rollupOptions: {
         external: ['solid-js', 'solid-js/web', 'solid-js/store'],
         output: {
-          exports: 'auto',
+          exports: 'named',
           format: 'es',
           dir: 'dist',
           preserveModules: true,

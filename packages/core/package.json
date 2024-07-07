@@ -19,7 +19,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build && npm run unocss",
     "preview": "vite preview",
-    "unocss": "unocss ./**/*.tsx -o dist/style.css",
+    "unocss": "unocss ./**/*.tsx -o dist/style.css -m",
     "release": "npm run build && bumpp && npm publish"
   },
   "dependencies": {
