@@ -22,6 +22,7 @@ export default defineConfig(async () => {
       }),
     ],
     build: {
+      reportCompressedSize: false,
       outDir: 'dist',
       cssCodeSplit: false,
       lib: {
