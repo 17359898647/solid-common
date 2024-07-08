@@ -7,7 +7,7 @@ export default eslint({
   ],
   unocss: true,
   jsx: true,
-  isInEditor: false,
+  isInEditor: true,
   solid: true,
   jsonc: false,
   stylistic: {

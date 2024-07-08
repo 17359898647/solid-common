@@ -6,9 +6,10 @@ import UnoCss from 'unocss/vite'
 import dts from 'vite-plugin-dts'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
 import terser from '@rollup/plugin-terser'
-import { entry } from './build/defineVite.ts'
+import { createIndexFile } from './build/createIndexFile.ts'
 
 export default defineConfig(async () => {
+  await createIndexFile()
   return {
     plugins: [
       codeInspectorPlugin({
@@ -24,11 +25,16 @@ export default defineConfig(async () => {
       outDir: 'dist',
       cssCodeSplit: false,
       lib: {
-        entry,
+        entry: {
+          index: resolve(__dirname, 'index.ts'),
+        },
         formats: ['es'],
       },
       rollupOptions: {
         external: ['solid-js', 'solid-js/web', 'solid-js/store'],
+        input: {
+          index: resolve(__dirname, 'index.ts'),
+        },
         output: {
           exports: 'named',
           format: 'es',

@@ -85,7 +85,7 @@ export function NationPhoneInput<T extends string>(
 
       <PhoneInput
         disabled={props.disabled}
-        inputRootClass="border-none"
+        inputRootClass="border-none rounded-none"
         name={props.phoneName}
         placeholder={props.placeholder}
         transform={transformNumber}
