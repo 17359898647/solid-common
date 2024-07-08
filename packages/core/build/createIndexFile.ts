@@ -22,5 +22,6 @@ export async function createIndexFile() {
   const result = defaultFile + importStatements.join('\n')
   const indexPath = resolve(rootDir, 'index.ts')
   await fs.writeFile(indexPath, result, 'utf-8')
+  console.log(result)
   execSync(`npx eslint ${indexPath} --fix`, { stdio: 'inherit' })
 }

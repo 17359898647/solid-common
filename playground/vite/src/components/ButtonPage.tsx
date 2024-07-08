@@ -22,8 +22,12 @@ export function ButtonPage() {
     'load_more',
   ]
   return (
-    <div class="grid cols-3 rows-3 gap-2">
-      <For each={arr}>
+    <div
+      class="grid cols-3 rows-3 gap-2"
+    >
+      <For
+        each={arr}
+      >
         {item => (
           <Button
             class="slef-center"

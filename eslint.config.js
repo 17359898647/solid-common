@@ -27,6 +27,7 @@ export default eslint({
           single: 1,
         },
       }],
+      'style/jsx-first-prop-new-line': [2, 'always'],
       'style/jsx-wrap-multilines': [2, {
         arrow: 'parens-new-line',
         assignment: 'parens-new-line',

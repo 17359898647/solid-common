@@ -24,12 +24,24 @@ export function Input(defaultProps: InputProps) {
   const props = mergeProps(formContext, defaultProps)
   const [, rest] = splitProps(props, ['type', 'class'])
   return (
-    <div class="w-full flex flex-col gap-y-2">
-      <Show when={props.label}>
-        <label class={cn('block text-sm font-medium text-gray-700', props.labelClass)}>
+    <div
+      class="w-full flex flex-col gap-y-2"
+    >
+      <Show
+        when={props.label}
+      >
+        <label
+          class={cn('block text-sm font-medium text-gray-700', props.labelClass)}
+        >
           {props.label}
           &nbsp
-          {props.required && <span class="text-red-600">*</span>}
+          {props.required && (
+            <span
+              class="text-red-600"
+            >
+              *
+            </span>
+          )}
         </label>
       </Show>
       <div
@@ -40,7 +52,9 @@ export function Input(defaultProps: InputProps) {
           props.disabled ? '!border-gray-300' : '',
         )}
       >
-        <Show when={props.icon}>
+        <Show
+          when={props.icon}
+        >
           <div
             class={cn(
               'px-3 h-auto flex items-center justify-center text-xs border-r',
@@ -67,13 +81,19 @@ export function Input(defaultProps: InputProps) {
           {props.children}
         </Show>
 
-        <Show when={props.rightSection}>
-          <div class={cn('w-6 h-auto flex items-center justify-center text-xs ', props.rightSectionClass)}>
+        <Show
+          when={props.rightSection}
+        >
+          <div
+            class={cn('w-6 h-auto flex items-center justify-center text-xs ', props.rightSectionClass)}
+          >
             {props.rightSection}
           </div>
         </Show>
       </div>
-      <Show when={props.showError !== false}>
+      <Show
+        when={props.showError !== false}
+      >
         <InputError
           class={props.errorClass}
           errors={props.errors}

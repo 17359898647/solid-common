@@ -69,12 +69,16 @@ export function Button(defaultProps: ButtonProps) {
       <Show
         when={props.loading}
         fallback={(
-          <Show when={props.icon}>
+          <Show
+            when={props.icon}
+          >
             {props.icon}
           </Show>
         )}
       >
-        <i class="icon-eos-icons:bubble-loading" />
+        <i
+          class="icon-eos-icons:bubble-loading"
+        />
       </Show>
       {props.children}
     </button>

@@ -22,10 +22,13 @@ export function Form(props: ICustomFormProps) {
   }, { defer: true }))
 
   return (
-    <FormContext.Provider value={state}>
+    <FormContext.Provider
+      value={state}
+    >
       <form
         {...rest}
       />
     </FormContext.Provider>
   )
 }
+export function Demo_demo() {}

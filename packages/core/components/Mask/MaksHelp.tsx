@@ -35,18 +35,6 @@ export interface BaseIMaskProps<T extends string> {
   setData?: (key: T, val: any) => void
 }
 
-export function WatchInput<T extends InputMask<any>>(e: HTMLInputElement, mask: T) {
-  Object.defineProperty(e, 'value', {
-    set: (value) => {
-      mask.value = value ?? ''
-      return value
-    },
-    get() {
-      return mask.rawInputValue
-    },
-  })
-}
-
 const defaultEventOptions = { bubbles: true, cancelable: true }
 const onInputEvent = new Event('input', defaultEventOptions)
 const onFocusOutEvent = new Event('focusout', defaultEventOptions)
@@ -74,6 +62,7 @@ export function MaskHelp<T extends FactoryArg>(props: IMaskHelp<T>) {
     !!props.value && (valueEl().value = props.value)
     setTimeout(() => {
       mask().value = valueEl().value ?? ''
+      // eslint-disable-next-line solid/reactivity
       mask().on('accept', () => {
         valueEl().value = props.transform?.(mask().value) ?? mask().value
         props.onInput?.(mask())

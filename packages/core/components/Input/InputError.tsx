@@ -9,10 +9,16 @@ interface InputErrorProps {
 
 export function InputError(props: InputErrorProps) {
   return (
-    <Show when={props.errors && props.errors.length > 0}>
-      <For each={props.errors}>
+    <Show
+      when={props.errors && props.errors.length > 0}
+    >
+      <For
+        each={props.errors}
+      >
         {error => (
-          <div class={cn('text-red-500 text-xs w-full text-left', props.class)}>
+          <div
+            class={cn('text-red-500 text-xs w-full text-left', props.class)}
+          >
             {error}
           </div>
         )}
