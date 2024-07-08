@@ -34,7 +34,7 @@ export default defineConfig(async () => {
           format: 'es',
           dir: 'dist',
           preserveModules: true,
-          preserveModulesRoot: resolve(__dirname),
+          preserveModulesRoot: resolve(__dirname, '../..'),
         },
         plugins: [
           terser(),
