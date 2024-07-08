@@ -22,6 +22,7 @@ export default defineConfig(async () => {
     ],
     build: {
       outDir: 'dist',
+      cssCodeSplit: false,
       lib: {
         entry,
         formats: ['es'],

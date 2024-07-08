@@ -17,9 +17,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && npm run unocss",
+    "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "unocss": "unocss ./**/*.tsx -o dist/style.css -m",
     "release": "npm run build && bumpp && npm publish"
   },
   "dependencies": {
