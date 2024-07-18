@@ -1,7 +1,7 @@
 {
   "name": "@gedatou/solid-common",
   "type": "module",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "homepage": "https://github.com/17359898647/solid-common#readme",
   "author": "ge Datou",
@@ -19,7 +19,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build --watch",
     "preview": "vite preview",
-    "release": "vite build && bumpp && npm publish"
+    "release": "vite build && git add ./index.ts && bumpp && npm publish"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.3",
