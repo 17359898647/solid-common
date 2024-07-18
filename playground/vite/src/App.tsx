@@ -1,5 +1,6 @@
 import '@gedatou/solid-common/style.css'
 import { Form, Input, NationPhoneInput, PhoneInput, SSNInput, ZipCodeInput } from '@gedatou/solid-common'
+
 import { ButtonPage } from './components/ButtonPage'
 
 function App() {

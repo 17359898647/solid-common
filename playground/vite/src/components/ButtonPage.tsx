@@ -1,5 +1,5 @@
-import { For } from 'solid-js'
 import { Button } from '@gedatou/solid-common'
+import { For } from 'solid-js'
 
 export function ButtonPage() {
   const arr: ['link', 'confirm', 'cancel', 'disable_confirm', 'disable_cancel', 'default', 'default1', 'default2', 'destructive', 'outline', 'outline_teal', 'outline_sm', 'secondary', 'ghost', 'custom', 'primary', 'load_more'] = [

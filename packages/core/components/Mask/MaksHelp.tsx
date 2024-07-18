@@ -1,8 +1,8 @@
+import imask from 'imask'
 import type InputMask from 'imask/controls/input'
+import type { FactoryArg } from 'imask/masked/factory'
 import type { Signal } from 'solid-js'
 import { createSignal } from 'solid-js'
-import type { FactoryArg } from 'imask/masked/factory'
-import imask from 'imask'
 
 /**
  * The touch corresponding to the key must be set using setTouched to trigger the verification properly

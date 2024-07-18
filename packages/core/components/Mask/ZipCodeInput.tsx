@@ -1,5 +1,7 @@
 import { mergeProps } from 'solid-js'
+
 import { Input } from '../Input'
+
 import type { BaseIMaskProps } from './MaksHelp'
 import { MaskHelp, verifyNumber } from './MaksHelp'
 

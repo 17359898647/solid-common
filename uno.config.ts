@@ -1,3 +1,4 @@
+import { presetForms } from '@julr/unocss-preset-forms'
 import {
   defineConfig,
   presetIcons,
@@ -6,9 +7,8 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-import { presetExtra } from 'unocss-preset-extra'
 import presetAnimations from 'unocss-preset-animations'
-import { presetForms } from '@julr/unocss-preset-forms'
+import { presetExtra } from 'unocss-preset-extra'
 
 const prefix = ''
 export default defineConfig({

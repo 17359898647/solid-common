@@ -1,7 +1,9 @@
-import { resolve } from 'node:path'
 import { execSync } from 'node:child_process'
+import { resolve } from 'node:path'
+
 import fg from 'fast-glob'
 import fs from 'fs-extra'
+
 import { rootDir } from './help.ts'
 
 const DIR = ['components', 'utils']

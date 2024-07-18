@@ -7,7 +7,7 @@ export default eslint({
   ],
   unocss: true,
   jsx: true,
-  isInEditor: true,
+  isInEditor: false,
   solid: true,
   jsonc: false,
   stylistic: {
@@ -41,6 +41,14 @@ export default eslint({
         allow: 'literal',
       }],
       'no-console': 0,
+      'import/order': [2, {
+        'newlines-between': 'always',
+        'alphabetize': {
+          order: 'asc',
+          caseInsensitive: false,
+          orderImportKind: 'asc',
+        },
+      }],
     },
   },
 })

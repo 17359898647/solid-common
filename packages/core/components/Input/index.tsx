@@ -1,7 +1,9 @@
 import type { JSX } from 'solid-js'
 import { Show, mergeProps, splitProps } from 'solid-js'
-import { useFormContext } from '../Form/FormContext.ts'
+
 import { cn } from '../../utils/cn.ts'
+import { useFormContext } from '../Form/FormContext.ts'
+
 import { InputError } from './InputError.tsx'
 
 export interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {

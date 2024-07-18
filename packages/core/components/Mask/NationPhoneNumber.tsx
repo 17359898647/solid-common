@@ -1,10 +1,12 @@
 import { createEffect, createSignal, mergeProps, on } from 'solid-js'
+
 import { cn } from '../../utils/cn.ts'
 import { useFormContext } from '../Form/FormContext.ts'
 import { Input } from '../Input'
-import { PhoneInput } from './PhoneInput'
-import { MaskHelp, transformNumber } from './MaksHelp'
+
 import type { BaseIMaskProps } from './MaksHelp'
+import { MaskHelp, transformNumber } from './MaksHelp'
+import { PhoneInput } from './PhoneInput'
 
 export function NationPhoneInput<T extends string>(
   defaultProps: Omit<BaseIMaskProps<T>, 'setData' | 'setTouched' | 'setIsDirty' | 'onInput' | 'transform'> & {
