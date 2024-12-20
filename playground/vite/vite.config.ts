@@ -11,4 +11,7 @@ export default defineConfig({
     solid(),
     UnoCss(),
   ],
+  build: {
+    minify: false,
+  },
 })

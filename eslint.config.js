@@ -8,7 +8,11 @@ export default eslint({
   unocss: true,
   jsx: true,
   isInEditor: false,
-  solid: true,
+  solid: {
+    overrides: {
+      'solid/reactivity': 0,
+    },
+  },
   jsonc: false,
   stylistic: {
     overrides: {

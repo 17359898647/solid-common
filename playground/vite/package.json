@@ -9,7 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@felte/common": "^1.1.8",
+    "@felte/core": "^1.4.3",
+    "@felte/solid": "^1.2.7",
     "@gedatou/solid-common": "link:../../packages/core",
+    "@types/lodash-es": "^4.17.12",
+    "lodash-es": "^4.17.21",
     "solid-js": "^1.8.17"
   },
   "devDependencies": {
