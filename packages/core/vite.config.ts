@@ -1,6 +1,5 @@
 import { resolve } from 'node:path'
 
-import terser from '@rollup/plugin-terser'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
 import UnoCss from 'unocss/vite'
 import type { UserConfig } from 'vite'
@@ -45,9 +44,6 @@ export default defineConfig(async () => {
           preserveModules: true,
           preserveModulesRoot: resolve(__dirname, '../..'),
         },
-        plugins: [
-          terser(),
-        ],
       },
     },
   } as UserConfig
