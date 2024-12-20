@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <button
-        class="border text-blue-700"
+        class="h--border h--text-blue-700"
         onClick={() => setShow(e => !e)}
       >
         33

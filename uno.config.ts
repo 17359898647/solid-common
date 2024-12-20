@@ -10,7 +10,7 @@ import {
 import presetAnimations from 'unocss-preset-animations'
 import { presetExtra } from 'unocss-preset-extra'
 
-const prefix = ''
+const prefix = 'h--'
 export default defineConfig({
   content: {
     pipeline: {
