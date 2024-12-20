@@ -1,4 +1,3 @@
-import '@gedatou/solid-common/style.css'
 import { until } from '@gedatou/solid-common'
 import { createSignal } from 'solid-js'
 
@@ -10,11 +9,12 @@ function App() {
   })
   return (
     <div>
-      <div
+      <button
+        class="border text-blue-700"
         onClick={() => setShow(e => !e)}
       >
         33
-      </div>
+      </button>
     </div>
   )
 }
