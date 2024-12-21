@@ -22,13 +22,15 @@
     "release": "vite build && git add ./index.ts && bumpp && npm publish"
   },
   "dependencies": {
-    "@kobalte/core": "^0.13.3",
+    "@kobalte/core": "^0.13.7",
     "@rnwonder/solid-date-picker": "^1.3.7",
     "@types/lodash-es": "^4.17.12",
-    "class-variance-authority": "^0.7.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "lodash-es": "^4.17.21",
     "solid-js": "^1.8.17",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "typescript": "^5.2.2",

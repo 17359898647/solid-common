@@ -1,6 +1,6 @@
-import '@unocss/reset/tailwind-compat.css'
-import 'virtual:uno.css'
+import './index.css'
 
+export * from './components/ui/button'
 export * from './hook/access'
 export * from './hook/AccessComponent'
 export * from './hook/createEventHook'
