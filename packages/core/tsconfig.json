@@ -23,5 +23,9 @@
     "noUnusedParameters": true,
     "noEmit": true,
     "isolatedModules": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
 }
