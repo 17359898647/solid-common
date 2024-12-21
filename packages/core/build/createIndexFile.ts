@@ -5,11 +5,14 @@ import fg from 'fast-glob'
 import fs from 'fs-extra'
 
 import { DIR, rootDir } from './help.ts'
+// 示例使用
+const defaultFileArr = [
+  'import \'virtual:uno.css\'',
+  'import \'./index.css\'',
+]
 
 export async function createIndexFile() {
-  const defaultFile
-      = 'import \'@unocss/reset/tailwind-compat.css\'\n'
-      + 'import \'virtual:uno.css\'\n'
+  const defaultFile = `${defaultFileArr.join('\n')}\n`
   const list = DIR.map(path => `./${path}/**/*.ts?(x)`)
 
   const files = await fg(list, {

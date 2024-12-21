@@ -5,7 +5,6 @@ export default eslint({
     'node_modules',
     'src/types/*',
   ],
-  unocss: true,
   jsx: true,
   isInEditor: false,
   solid: {
@@ -53,6 +52,7 @@ export default eslint({
           orderImportKind: 'asc',
         },
       }],
+      'perfectionist/sort-imports': 0,
     },
   },
 })

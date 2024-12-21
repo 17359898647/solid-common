@@ -1,7 +1,5 @@
 import { resolve } from 'node:path'
 
-import { codeInspectorPlugin } from 'code-inspector-plugin'
-import UnoCss from 'unocss/vite'
 import type { UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
@@ -13,10 +11,6 @@ export default defineConfig(async () => {
   await createIndexFile()
   return {
     plugins: [
-      codeInspectorPlugin({
-        bundler: 'vite',
-      }),
-      UnoCss(),
       solid(),
       dts({
         rollupTypes: true,
