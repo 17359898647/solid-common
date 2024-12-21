@@ -7,12 +7,13 @@ import fs from 'fs-extra'
 import { DIR, rootDir } from './help.ts'
 // 示例使用
 const defaultFileArr = [
-  'import \'virtual:uno.css\'',
   'import \'./index.css\'',
 ]
+const indexPath = resolve(rootDir, 'index.ts')
 
 export async function createIndexFile() {
   const defaultFile = `${defaultFileArr.join('\n')}\n`
+
   const list = DIR.map(path => `./${path}/**/*.ts?(x)`)
 
   const files = await fg(list, {
@@ -26,7 +27,6 @@ export async function createIndexFile() {
     return `export * from '${importPath}'`
   })
   const result = defaultFile + importStatements.join('\n')
-  const indexPath = resolve(rootDir, 'index.ts')
   await fs.writeFile(indexPath, result, 'utf-8')
   execSync(`npx eslint ${indexPath} --fix`, { stdio: 'inherit' })
 }
