@@ -47,7 +47,9 @@ function Button<T extends ValidComponent = 'button'>(props: PolymorphicProps<T, 
       <Show
         when={local.loading}
       >
-        loading
+        <i
+          class="icon-eos-icons:bubble-loading"
+        />
       </Show>
       {local.children}
     </ButtonPrimitive.Root>

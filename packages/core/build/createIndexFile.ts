@@ -7,6 +7,7 @@ import fs from 'fs-extra'
 import { DIR, rootDir } from './help.ts'
 // 示例使用
 const defaultFileArr = [
+  'import \'virtual:uno.css\'',
   'import \'./index.css\'',
 ]
 const indexPath = resolve(rootDir, 'index.ts')

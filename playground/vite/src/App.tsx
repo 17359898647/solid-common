@@ -11,7 +11,7 @@ import { createSignal, untrack } from 'solid-js'
 import '@gedatou/solid-common/style.css'
 
 function App() {
-  const [show, setShow] = createSignal(false)
+  const [show, setShow] = createSignal(true)
 
   const { loading, execute } = useAxios(() => !untrack(show), async (e) => {
     await new Promise(resolve => setTimeout(resolve, 1000))

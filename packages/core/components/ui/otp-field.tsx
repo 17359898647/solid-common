@@ -64,7 +64,7 @@ const OTPFieldSlot: Component<ComponentProps<'div'> & { index: number }> = (prop
           class="h--pointer-events-none h--absolute h--inset-0 h--flex h--items-center h--justify-center"
         >
           <div
-            class="h--h-4 h--w-px h--animate-caret-blink h--bg-foreground h--duration-1000"
+            class="h--bg-foreground h--animate-caret-blink h--h-4 h--w-px h--duration-1000"
           />
         </div>
       </Show>

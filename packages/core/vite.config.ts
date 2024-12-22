@@ -1,5 +1,6 @@
 import { resolve } from 'node:path'
 
+import UnoCSS from 'unocss/vite'
 import type { UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
@@ -11,6 +12,7 @@ export default defineConfig(async () => {
   await createIndexFile()
   return {
     plugins: [
+      UnoCSS(),
       solid(),
       dts({
         rollupTypes: true,

@@ -5,6 +5,7 @@ export default eslint({
     'node_modules',
     'src/types/*',
   ],
+  unocss: true,
   jsx: true,
   isInEditor: false,
   solid: {
