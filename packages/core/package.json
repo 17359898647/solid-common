@@ -22,6 +22,7 @@
     "release": "vite build && git add ./index.ts && bumpp && npm publish"
   },
   "dependencies": {
+    "@corvu/otp-field": "^0.1.4",
     "@kobalte/core": "^0.13.7",
     "@rnwonder/solid-date-picker": "^1.3.7",
     "@types/lodash-es": "^4.17.12",

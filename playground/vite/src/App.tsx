@@ -1,4 +1,12 @@
-import { Button, until, useAxios } from '@gedatou/solid-common'
+import {
+  Button,
+  OTPField,
+  OTPFieldGroup,
+  OTPFieldInput,
+  OTPFieldSlot,
+  until,
+  useAxios,
+} from '@gedatou/solid-common'
 import { createSignal, untrack } from 'solid-js'
 import '@gedatou/solid-common/style.css'
 
@@ -48,6 +56,31 @@ function App() {
       >
         Link
       </Button>
+      <OTPField
+        maxLength={6}
+      >
+        <OTPFieldInput />
+        <OTPFieldGroup>
+          <OTPFieldSlot
+            index={0}
+          />
+          <OTPFieldSlot
+            index={1}
+          />
+          <OTPFieldSlot
+            index={2}
+          />
+          <OTPFieldSlot
+            index={3}
+          />
+          <OTPFieldSlot
+            index={4}
+          />
+          <OTPFieldSlot
+            index={5}
+          />
+        </OTPFieldGroup>
+      </OTPField>
     </div>
   )
 }
