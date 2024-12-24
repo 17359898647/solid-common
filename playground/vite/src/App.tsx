@@ -1,120 +1,103 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-  Button,
-  OTPField,
-  OTPFieldGroup,
-  OTPFieldInput,
-  OTPFieldSlot,
-  until,
-  useAxios,
-} from '@gedatou/solid-common'
-import { createSignal, untrack } from 'solid-js'
 import '@gedatou/solid-common/style.css'
+import { _get } from '@felte/common'
+import { createForm } from '@felte/solid'
+import type { ICreateStoreHelperReturn } from '@gedatou/solid-common'
+import { createStoreHelper, FelteHelpKey, useFelteHelp } from '@gedatou/solid-common'
+import imask from 'imask'
+import { createEffect, onCleanup } from 'solid-js'
+
+export enum PhoneMaskStr {
+  allHidden = '(HHH)` HHH`-HHHH',
+  allShow = '(SSS)` SSS`-SSSS',
+}
+function maskHelp() {
+  let el: HTMLInputElement
+  const formatValue = imask.createPipe({
+    mask: PhoneMaskStr.allHidden,
+    lazy: true,
+    definitions: {
+      H: {
+        mask: Number,
+        placeholderChar: '#',
+        displayChar: '*',
+      },
+      S: {
+        placeholderChar: '#',
+        mask: Number,
+      },
+    },
+  })
+  let felteHelp: ICreateStoreHelperReturn
+  const abort = new AbortController()
+  const ref = (e: HTMLInputElement) => {
+    el = e
+    const name = e.name
+    const parent = el.closest('form')
+    const key = parent?.dataset[FelteHelpKey]
+    felteHelp = createStoreHelper(key)
+    const isFelte = !!name && !!parent
+    queueMicrotask(() => {
+      el.value = formatValue(el.value)
+    })
+
+    el.addEventListener('input', () => {
+      el.value = formatValue(el.value || '')
+      isFelte && felteHelp.setData(name, el.value)
+    }, {
+      signal: abort.signal,
+    })
+    const unsubscribe = name
+      ? felteHelp.subscribe(
+          (data) => {
+            const value = _get(data, name)
+            el.value = value ? formatValue(String(value)) : ''
+          },
+        )
+      : () => {}
+    onCleanup(() => {
+      unsubscribe?.()
+      abort.abort()
+    })
+  }
+  return {
+    ref,
+    formatValue,
+  }
+}
 
 function App() {
-  const [show, setShow] = createSignal(true)
-
-  const { loading, execute } = useAxios(() => !untrack(show), async (e) => {
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setShow(e)
-  }, {
-    immediate: false,
+  const { form, data, setData, touched } = createForm({
+    initialValues: {
+      phone: '123123123',
+    },
+    extend: [useFelteHelp],
   })
-
-  until(show).toBe(true).then((res) => {
-    console.log(res)
+  createEffect(() => {
+    console.log(data(), touched())
   })
+  const { ref, formatValue } = maskHelp()
   return (
-    <div>
-      <Button
-        loading={loading()}
-        onClick={() => execute(!show())}
-      >
-        Primary
-      </Button>
-      <Button
-        variant="secondary"
-      >
-        Secondary
-      </Button>
-      <Button
-        variant="destructive"
-      >
-        Destructive
-      </Button>
-      <Button
-        variant="outline"
-      >
-        Outline
-      </Button>
-      <Button
-        variant="ghost"
-      >
-        Ghost
-      </Button>
-      <Button
-        variant="link"
-      >
-        Link
-      </Button>
-      <OTPField
-        maxLength={6}
-      >
-        <OTPFieldInput />
-        <OTPFieldGroup>
-          <OTPFieldSlot
-            index={0}
-          />
-          <OTPFieldSlot
-            index={1}
-          />
-          <OTPFieldSlot
-            index={2}
-          />
-          <OTPFieldSlot
-            index={3}
-          />
-          <OTPFieldSlot
-            index={4}
-          />
-          <OTPFieldSlot
-            index={5}
-          />
-        </OTPFieldGroup>
-      </OTPField>
-      <Accordion
-        collapsible
-        class="w-full"
-        multiple={true}
-      >
-        <AccordionItem
-          disabled
-          value="item-1"
-        >
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
-        </AccordionItem>
-        <AccordionItem
-          value="item-2"
-        >
-          <AccordionTrigger>Is it styled?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It comes with default styles that matches the other components' aesthetic.
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem
-          value="item-3"
-        >
-          <AccordionTrigger>Is it animated?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It's animated by default, but you can disable it if you prefer.
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    </div>
+    <form
+      ref={form}
+      class="h--h-screen h--flex h--items-center h--justify-center"
+    >
+      <input
+        // ref={ref}
+        class="h--border-border h--border"
+        name="phone"
+        // value={formatValue(data('phone'))}
+        // onInput={(e) => {
+        //   console.log(e.target.value)
+        // }}
+      />
+      <input
+        class="h--border-border h--border"
+        value={data('phone')}
+        onInput={(e) => {
+          setData('phone', formatValue(e.currentTarget.value))
+        }}
+      />
+    </form>
   )
 }
 
